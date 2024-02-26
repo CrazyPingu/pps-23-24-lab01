@@ -5,7 +5,7 @@ package example.model;
  */
 public class SimpleBankAccountWithAtm extends SimpleBankAccount {
 
-    public final double ATM_FEE = 1.0;
+    public static final double ATM_FEE = 1.0;
 
     /**
      * Constructor for the SimpleBankAccountWithAtm
