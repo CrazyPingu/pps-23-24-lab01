@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CircularListImpl implements CircularList{
+public class CircularListImpl implements CircularList {
 
     private int currentIndex = 0;
     private final List<Integer> list = new ArrayList<>();
+
     @Override
     public void add(int element) {
         list.add(element);
@@ -28,8 +29,9 @@ public class CircularListImpl implements CircularList{
         if (list.isEmpty()) {
             return Optional.empty();
         }
+        Optional<Integer> result = Optional.of(list.get(currentIndex));
         currentIndex = (currentIndex + 1) % list.size();
-        return Optional.of(list.get(currentIndex));
+        return result;
     }
 
     @Override
