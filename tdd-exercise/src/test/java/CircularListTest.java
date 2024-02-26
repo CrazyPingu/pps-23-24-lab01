@@ -30,10 +30,11 @@ public class CircularListTest {
         circularList.add(1);
         circularList.add(2);
         circularList.add(3);
-        assertEquals(1, circularList.next().get());
-        assertEquals(2, circularList.next().get());
-        assertEquals(3, circularList.next().get());
-        assertEquals(1, circularList.next().get());
+
+        assertEquals(1, circularList.next().orElse(-1));
+        assertEquals(2, circularList.next().orElse(-1));
+        assertEquals(3, circularList.next().orElse(-1));
+        assertEquals(1, circularList.next().orElse(-1));
     }
 
     @Test
@@ -41,10 +42,10 @@ public class CircularListTest {
         circularList.add(1);
         circularList.add(2);
         circularList.add(3);
-        assertEquals(3, circularList.previous().get());
-        assertEquals(2, circularList.previous().get());
-        assertEquals(1, circularList.previous().get());
-        assertEquals(3, circularList.previous().get());
+        assertEquals(3, circularList.previous().orElse(-1));
+        assertEquals(2, circularList.previous().orElse(-1));
+        assertEquals(1, circularList.previous().orElse(-1));
+        assertEquals(3, circularList.previous().orElse(-1));
     }
 
     @Test
@@ -52,11 +53,11 @@ public class CircularListTest {
         circularList.add(1);
         circularList.add(2);
         circularList.add(3);
-        assertEquals(1, circularList.next().get());
-        assertEquals(2, circularList.next().get());
-        assertEquals(3, circularList.next().get());
+        assertEquals(1, circularList.next().orElse(-1));
+        assertEquals(2, circularList.next().orElse(-1));
+        assertEquals(3, circularList.next().orElse(-1));
         circularList.reset();
-        assertEquals(1, circularList.next().get());
+        assertEquals(1, circularList.next().orElse(-1));
     }
 
     @Test
