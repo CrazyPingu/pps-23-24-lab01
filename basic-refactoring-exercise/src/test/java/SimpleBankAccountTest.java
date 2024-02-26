@@ -1,9 +1,10 @@
 import example.model.AccountHolder;
 import example.model.BankAccount;
 import example.model.SimpleBankAccount;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * The test suite for testing the SimpleBankAccount implementation
@@ -14,7 +15,7 @@ class SimpleBankAccountTest {
     private BankAccount bankAccount;
 
     @BeforeEach
-    void beforeEach(){
+    void beforeEach() {
         accountHolder = new AccountHolder("Mario", "Rossi", 1);
         bankAccount = new SimpleBankAccount(accountHolder, 0);
     }
