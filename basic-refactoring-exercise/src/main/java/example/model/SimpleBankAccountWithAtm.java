@@ -5,6 +5,10 @@ package example.model;
  */
 public class SimpleBankAccountWithAtm extends SimpleBankAccount {
 
+    /**
+     * The ATM fee.
+     * If negative, it is not applied
+     */
     public static final double ATM_FEE = 1.0;
 
     /**
@@ -19,24 +23,28 @@ public class SimpleBankAccountWithAtm extends SimpleBankAccount {
 
 
     /**
-     * Withdraws the amount from the account taking into account the ATM fee
+     * Withdraws the amount from the account taking into account the ATM fee.
+     * If the ATM fee is negative, it is not applied.
      *
      * @param userID the id of the user that wants do the withdrawal
      * @param amount the amount of the withdrawal
      */
     @Override
     public void withdraw(int userID, double amount) {
-        super.withdraw(userID, amount + ATM_FEE);
+        double newAmount = amount + (ATM_FEE < 0 ? 0 : ATM_FEE);
+        super.withdraw(userID, newAmount);
     }
 
     /**
      * Deposits the amount to the account taking into account the ATM fee
+     * If the ATM fee is negative, it is not applied.
      *
      * @param userID the id of the user that wants do the deposit
      * @param amount the amount of the deposit
      */
     @Override
     public void deposit(int userID, double amount) {
-        super.deposit(userID, amount - ATM_FEE);
+        double newAmount = amount - (ATM_FEE < 0 ? 0 : ATM_FEE);
+        super.deposit(userID, newAmount);
     }
 }
