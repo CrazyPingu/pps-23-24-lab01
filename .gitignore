@@ -78,6 +78,7 @@ gradle-app.setting
 
 # IntelliJ
 .idea/
+qodana.yaml
 
 # Mac OS
 .DS_Store
