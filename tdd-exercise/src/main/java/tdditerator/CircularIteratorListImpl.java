@@ -45,7 +45,7 @@ public class CircularIteratorListImpl implements CircularIteratorList {
      * @return the iterator
      */
     private Iterator<Integer> iteratorCreator(int step) {
-        return new Iterator<Integer>() {
+        return new Iterator<>() {
 
             @Override
             public boolean hasNext() {
@@ -57,9 +57,12 @@ public class CircularIteratorListImpl implements CircularIteratorList {
                 if (list.isEmpty()) {
                     return null;
                 }
-                int result = list.get(currentIndex);
+
                 currentIndex = (currentIndex + step + list.size()) % list.size();
-                return result;
+
+                return step > 0 ?
+                        list.get((currentIndex - step + list.size()) % list.size()) :
+                        list.get(currentIndex);
             }
         };
     }
